@@ -16,14 +16,21 @@ import static javafx.concurrent.Worker.State;
 
 public class YoutubePlayer extends Application {
 
-//    public static void main(String[] args)
-//    {
-//        Application.launch(args);
-//    }
+    SlackManager slackManager;
 
+    public static void main(String[] args) {
+        YoutubePlayer.launch(args);
+    }
 
     @Override
     public void start(final Stage stage) {
+        try {
+            slackManager = new SlackManager();
+        } catch (Exception e) {
+            System.out.println("can't open slack Manager");
+            System.out.println(e);
+        }
+
         // Create the WebView
         WebView webView = new WebView();
 
@@ -31,7 +38,7 @@ public class YoutubePlayer extends Application {
         final WebEngine webEngine = webView.getEngine();
 
         // LOad the Start-Page
-        webEngine.load("http://www.oracle.com");
+        webEngine.load("https://www.youtube.com/watch?v=8lx0vLTH_yg");
 
         // Update the stage title when a new web page title is available
         webEngine.getLoadWorker().stateProperty().addListener(new ChangeListener<State>()

@@ -5,8 +5,8 @@ version '1.0-SNAPSHOT'
 apply plugin: 'application'
 
 // Mainクラスを指定(パッケージ名込み(FQCN))
-mainClassName = 'SlackManager'
-//mainClassName = 'YoutubePlayer'
+//mainClassName = 'SlackManager'
+mainClassName = 'YoutubePlayer'
 
 sourceCompatibility = 1.8
 
