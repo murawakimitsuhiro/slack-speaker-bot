@@ -12,11 +12,16 @@ import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javafx.scene.web.WebEngine;
+import rx.Observable;
+
 import static javafx.concurrent.Worker.State;
 
 public class YoutubePlayer extends Application {
 
-    SlackManager slackManager;
+    private SlackManager slackManager;
+
+    private Stage stage;
+    private WebEngine webEngine;
 
     public static void main(String[] args) {
         YoutubePlayer.launch(args);
@@ -26,6 +31,10 @@ public class YoutubePlayer extends Application {
     public void start(final Stage stage) {
         try {
             slackManager = new SlackManager();
+            slackManager.reseiveRequestObservable
+                    .subscribe(content -> {
+                        this.loadNewWebSite(content);
+                    });
         } catch (Exception e) {
             System.out.println("can't open slack Manager");
             System.out.println(e);
@@ -35,10 +44,10 @@ public class YoutubePlayer extends Application {
         WebView webView = new WebView();
 
         // Create the WebEngine
-        final WebEngine webEngine = webView.getEngine();
+        webEngine = webView.getEngine();
 
         // LOad the Start-Page
-        webEngine.load("https://www.youtube.com/watch?v=8lx0vLTH_yg");
+        webEngine.load("https://google.com");
 
         // Update the stage title when a new web page title is available
         webEngine.getLoadWorker().stateProperty().addListener(new ChangeListener<State>()
@@ -74,4 +83,19 @@ public class YoutubePlayer extends Application {
         stage.show();
     }
 
+    void loadNewWebSite(String searchContent) {
+        webEngine.load("https://www.youtube.com/watch?v=8lx0vLTH_yg");
+
+        webEngine.getLoadWorker().stateProperty().addListener(new ChangeListener<State>()
+        {
+            public void changed(ObservableValue<? extends State> ov, State oldState, State newState)
+            {
+                if (newState == State.SUCCEEDED)
+                {
+                    //stage.setTitle(webEngine.getLocation());
+                    stage.setTitle(webEngine.getTitle());
+                }
+            }
+        });
+    }
 }

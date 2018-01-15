@@ -4,15 +4,21 @@ import org.riversun.slacklet.SlackletRequest;
 import org.riversun.slacklet.SlackletResponse;
 import org.riversun.slacklet.SlackletService;
 import org.riversun.xternal.simpleslackapi.SlackChannel;
+import rx.subjects.PublishSubject;
 
 import java.io.IOException;
 
 public class SlackManager {
 
-    SlackManager() throws IOException {
-        String botToken ="xoxb-298506418368-9ZHlhlb5sG7Gg9ywM2IzT42B";
+    SlackletService slackService;
 
-        SlackletService slackService = new SlackletService(botToken);
+    public PublishSubject<String> reseiveRequestObservable;
+
+    SlackManager() throws IOException {
+        reseiveRequestObservable = PublishSubject.create();
+
+        String botToken ="xoxb-298506418368-9ZHlhlb5sG7Gg9ywM2IzT42B";
+        slackService = new SlackletService(botToken);
 
         slackService.addSlacklet(new Slacklet() {
             @Override
@@ -28,7 +34,8 @@ public class SlackManager {
                     String content = req.getContent();
 
                     // メッセージがポストされたチャンネルに対して、BOTからメッセージを送る
-                    resp.reply("何も流れてなくない??");
+//                    resp.reply("何も流れてなくない??");
+                    reseiveRequestObservable.onNext(content);
                 }
 
             }
