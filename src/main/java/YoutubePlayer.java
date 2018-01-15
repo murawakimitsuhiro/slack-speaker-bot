@@ -21,8 +21,6 @@ public class YoutubePlayer extends Application {
 
     private SlackManager slackManager;
 
-    private VBox root;
-    private WebView webView;
     private WebEngine webEngine;
 
     public static void main(String[] args) {
@@ -32,29 +30,28 @@ public class YoutubePlayer extends Application {
     @Override
     public void start(final Stage stage) {
         // Create the WebView
-        this.webView = new WebView();
+        WebView webView = new WebView();
 
         // Create the WebEngine
-        this.webEngine = webView.getEngine();
+        webEngine = webView.getEngine();
 
         // LOad the Start-Page
-        this.webEngine.load("https://google.com");
+        webEngine.load("https://google.com");
 
         // Update the stage title when a new web page title is available
-        this.webEngine.getLoadWorker().stateProperty().addListener(new ChangeListener<State>()
+        webEngine.getLoadWorker().stateProperty().addListener(new ChangeListener<State>()
         {
             public void changed(ObservableValue<? extends State> ov, State oldState, State newState)
             {
                 if (newState == State.SUCCEEDED)
                 {
-                    //stage.setTitle(webEngine.getLocation());
                     stage.setTitle(webEngine.getTitle());
                 }
             }
         });
 
         // Create the VBox
-        root = new VBox();
+        VBox root = new VBox();
         // Add the WebView to the VBox
         root.getChildren().add(webView);
 
@@ -75,16 +72,34 @@ public class YoutubePlayer extends Application {
 
         try {
             slackManager = new SlackManager();
-            slackManager.reseiveRequestObservable
+            // url
+            slackManager.reseiveUrlRequestObservable
                     .subscribe(content -> {
-                        System.out.println("fefefefe");
-                        Platform.runLater(() ->
-                                webEngine.load("https://youtube.com")
-                        );
+                        Platform.runLater(() -> this.loadNewPage(content));
+                    });
+            // search
+            slackManager.reseiveSearchRequestObservable
+                    .subscribe(keywords -> {
+                        String url = youtubeSearchUrl(keywords);
+                        loadNewPage(url);
                     });
         } catch (Exception e) {
             System.out.println("can't open slack Manager");
             System.out.println(e);
         }
+    }
+
+    private String youtubeSearchUrl(String[] keywards) {
+        String url = "https://www.youtube.com/results?search_query=" + keywards[0];
+        for (int i=1; i<keywards.length; i++) {
+            url += "+" + keywards[i];
+        }
+        return url;
+    }
+
+    private void loadNewPage(String url) {
+        System.out.print("new page loaded  :  ");
+        System.out.println(url);
+        Platform.runLater( () -> webEngine.load(url));
     }
 }

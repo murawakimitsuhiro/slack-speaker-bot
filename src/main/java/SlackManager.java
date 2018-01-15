@@ -12,10 +12,12 @@ public class SlackManager {
 
     SlackletService slackService;
 
-    public PublishSubject<String> reseiveRequestObservable;
+    public PublishSubject<String> reseiveUrlRequestObservable;
+    public PublishSubject<String[]> reseiveSearchRequestObservable;
 
     SlackManager() throws IOException {
-        reseiveRequestObservable = PublishSubject.create();
+        reseiveUrlRequestObservable = PublishSubject.create();
+        reseiveSearchRequestObservable = PublishSubject.create();
 
         String botToken ="xoxb-298506418368-9ZHlhlb5sG7Gg9ywM2IzT42B";
         slackService = new SlackletService(botToken);
@@ -35,8 +37,13 @@ public class SlackManager {
 
                     // メッセージがポストされたチャンネルに対して、BOTからメッセージを送る
 //                    resp.reply("何も流れてなくない??");
-                    System.out.println("load started observe");
-                    reseiveRequestObservable.onNext(content);
+
+                    String[] keywords = split(content);
+                    if (keywords.length >= 2) {
+                        reseiveSearchRequestObservable.onNext(keywords);
+                    } else {
+                        reseiveUrlRequestObservable.onNext(content);
+                    }
                 }
 
             }
@@ -47,5 +54,9 @@ public class SlackManager {
         // チャンネルに対して、（返信ではなく）メッセージを送る
         String channelName = "murawaki-home-speaker";
         slackService.sendMessageTo(channelName, "I'm ready.");
+    }
+
+    private String[] split(String text) {
+        return text.replaceAll("　", " ").split("[\\s]+");
     }
 }
