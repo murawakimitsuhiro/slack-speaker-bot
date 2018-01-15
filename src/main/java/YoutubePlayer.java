@@ -1,4 +1,5 @@
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -20,7 +21,8 @@ public class YoutubePlayer extends Application {
 
     private SlackManager slackManager;
 
-    private Stage stage;
+    private VBox root;
+    private WebView webView;
     private WebEngine webEngine;
 
     public static void main(String[] args) {
@@ -29,28 +31,17 @@ public class YoutubePlayer extends Application {
 
     @Override
     public void start(final Stage stage) {
-        try {
-            slackManager = new SlackManager();
-            slackManager.reseiveRequestObservable
-                    .subscribe(content -> {
-                        this.loadNewWebSite(content);
-                    });
-        } catch (Exception e) {
-            System.out.println("can't open slack Manager");
-            System.out.println(e);
-        }
-
         // Create the WebView
-        WebView webView = new WebView();
+        this.webView = new WebView();
 
         // Create the WebEngine
-        webEngine = webView.getEngine();
+        this.webEngine = webView.getEngine();
 
         // LOad the Start-Page
-        webEngine.load("https://google.com");
+        this.webEngine.load("https://google.com");
 
         // Update the stage title when a new web page title is available
-        webEngine.getLoadWorker().stateProperty().addListener(new ChangeListener<State>()
+        this.webEngine.getLoadWorker().stateProperty().addListener(new ChangeListener<State>()
         {
             public void changed(ObservableValue<? extends State> ov, State oldState, State newState)
             {
@@ -63,7 +54,7 @@ public class YoutubePlayer extends Application {
         });
 
         // Create the VBox
-        VBox root = new VBox();
+        root = new VBox();
         // Add the WebView to the VBox
         root.getChildren().add(webView);
 
@@ -81,21 +72,19 @@ public class YoutubePlayer extends Application {
         stage.setScene(scene);
         // Display the Stage
         stage.show();
-    }
 
-    void loadNewWebSite(String searchContent) {
-        webEngine.load("https://www.youtube.com/watch?v=8lx0vLTH_yg");
-
-        webEngine.getLoadWorker().stateProperty().addListener(new ChangeListener<State>()
-        {
-            public void changed(ObservableValue<? extends State> ov, State oldState, State newState)
-            {
-                if (newState == State.SUCCEEDED)
-                {
-                    //stage.setTitle(webEngine.getLocation());
-                    stage.setTitle(webEngine.getTitle());
-                }
-            }
-        });
+        try {
+            slackManager = new SlackManager();
+            slackManager.reseiveRequestObservable
+                    .subscribe(content -> {
+                        System.out.println("fefefefe");
+                        Platform.runLater(() ->
+                                webEngine.load("https://youtube.com")
+                        );
+                    });
+        } catch (Exception e) {
+            System.out.println("can't open slack Manager");
+            System.out.println(e);
+        }
     }
 }
