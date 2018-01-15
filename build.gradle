@@ -1,0 +1,21 @@
+group 'murawaki'
+version '1.0-SNAPSHOT'
+
+// アプリケーションプラグインを利用
+apply plugin: 'application'
+
+// Mainクラスを指定(パッケージ名込み(FQCN))
+mainClassName = 'SlackManager'
+//mainClassName = 'YoutubePlayer'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'org.riversun:slacklet:1.0.1'
+}
+
