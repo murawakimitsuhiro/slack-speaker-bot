@@ -10,7 +10,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/YoutubePlayer$1.class" afterPath="$PROJECT_DIR$/build/classes/main/YoutubePlayer$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/YoutubePlayer.class" afterPath="$PROJECT_DIR$/build/classes/main/YoutubePlayer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/SlackManager.java" afterPath="$PROJECT_DIR$/src/main/java/SlackManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/YoutubePlayer.java" afterPath="$PROJECT_DIR$/src/main/java/YoutubePlayer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -53,29 +52,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="YoutubePlayer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="YoutubePlayer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/YoutubePlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+            <state relative-caret-position="-364">
+              <caret line="103" column="31" lean-forward="false" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#739#740#0" expanded="true" />
-                <element signature="e#781#782#0" expanded="true" />
+                <element signature="e#846#847#0" expanded="true" />
+                <element signature="e#888#889#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SlackManager.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SlackManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SlackManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+            <state relative-caret-position="555">
+              <caret line="48" column="12" lean-forward="false" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#864#1743#0" expanded="true" />
-                <element signature="e#1742#1743#0" expanded="true" />
                 <element signature="e#1980#1981#0" expanded="true" />
                 <element signature="e#2044#2045#0" expanded="true" />
               </folding>
@@ -482,8 +480,8 @@
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/HelloWorld.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/main/java/YoutubePlayer.java" />
         <option value="$PROJECT_DIR$/src/main/java/SlackManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/YoutubePlayer.java" />
       </list>
     </option>
   </component>
@@ -494,9 +492,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2" />
     <option name="y" value="23" />
-    <option name="width" value="1373" />
+    <option name="width" value="1318" />
     <option name="height" value="873" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -697,12 +694,12 @@
       <updated>1516043874563</updated>
       <workItem from="1516043877435" duration="1299000" />
       <workItem from="1516045264910" duration="1161000" />
-      <workItem from="1516048394259" duration="6923000" />
+      <workItem from="1516048394259" duration="14160000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9383000" />
+    <option name="totallyTimeSpent" value="16620000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -714,8 +711,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="23" width="1373" height="873" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1318" height="873" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.48877624" order="6" side_tool="false" content_ui="tabs" />
@@ -724,12 +720,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5220854" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18123393" sideWeight="0.47791454" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40874037" sideWeight="0.47791454" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904884" sideWeight="0.49456915" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2742299" sideWeight="0.49233717" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17398119" sideWeight="0.49233717" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -814,28 +810,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/YoutubePlayer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/SlackManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+        <state relative-caret-position="555">
+          <caret line="48" column="12" lean-forward="false" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#739#740#0" expanded="true" />
-            <element signature="e#781#782#0" expanded="true" />
+            <element signature="e#864#1743#0" expanded="true" />
+            <element signature="e#1980#1981#0" expanded="true" />
+            <element signature="e#2044#2045#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SlackManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/YoutubePlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+        <state relative-caret-position="-364">
+          <caret line="103" column="31" lean-forward="false" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#864#1743#0" expanded="true" />
-            <element signature="e#1742#1743#0" expanded="true" />
-            <element signature="e#1980#1981#0" expanded="true" />
-            <element signature="e#2044#2045#0" expanded="true" />
+            <element signature="e#846#847#0" expanded="true" />
+            <element signature="e#888#889#0" expanded="true" />
           </folding>
         </state>
       </provider>
