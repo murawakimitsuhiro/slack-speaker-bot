@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import javafx.scene.web.WebEngine;
 import netscape.javascript.JSObject;
 import rx.Observable;
+import rx.subjects.PublishSubject;
 
 import java.util.concurrent.TimeUnit;
 
@@ -27,12 +28,15 @@ public class YoutubePlayer extends Application {
 
     private WebEngine webEngine;
 
+    public PublishSubject<String> searchedObservable;
+
     public static void main(String[] args) {
         YoutubePlayer.launch(args);
     }
 
     @Override
     public void start(final Stage stage) {
+        searchedObservable = PublishSubject.create();
         // Create the WebView
         WebView webView = new WebView();
 
@@ -74,6 +78,7 @@ public class YoutubePlayer extends Application {
 
         try {
             slackManager = new SlackManager();
+            slackManager.setObservable(searchedObservable);
             // url
             slackManager.reseiveUrlRequestObservable
                     .subscribe(content -> {
@@ -117,6 +122,7 @@ public class YoutubePlayer extends Application {
                 if (href.contains("watch")) {
                     System.out.println(href);
                     webEngine.executeScript("location.href = '" + href + "';");
+                    searchedObservable.onNext(href);
                     return;
                 }
             }

@@ -56,7 +56,15 @@ public class SlackManager {
         slackService.sendMessageTo(channelName, "I'm ready.");
     }
 
+    public void setObservable(PublishSubject<String> observable) {
+        observable.subscribe(href -> {
+            String channelName = "murawaki-home-speaker";
+            slackService.sendMessageTo(channelName, "Now Playing :musical_note: " + href);
+        });
+    }
+
     private String[] split(String text) {
         return text.replaceAll("　", " ").split("[\\s]+");
     }
+
 }
