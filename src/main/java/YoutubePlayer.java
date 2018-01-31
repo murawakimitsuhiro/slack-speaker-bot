@@ -111,9 +111,13 @@ public class YoutubePlayer extends Application {
     }
 
     private void jumpToFirstVideoIfNeeded() {
-//        String linkGetJs = "document.getElementsByClassName('yt-simple-endpoint ytd-thumbnail')[0].href";
+
+        System.out.println("jump!!!!");
+//        if ( ((String) webEngine.executeScript("location.href")).contains("watch")) {
+//            return;
+//        }
+
         String linkGetJs = "document.getElementsByTagName('a').length";
-//        String linkGetJs = "document.classList";
         System.out.println(webEngine.executeScript(linkGetJs));
 
         if (webEngine.getLocation().contains("search_query")) {

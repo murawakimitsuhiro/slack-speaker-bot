@@ -19,7 +19,7 @@ public class SlackManager {
         reseiveUrlRequestObservable = PublishSubject.create();
         reseiveSearchRequestObservable = PublishSubject.create();
 
-        String botToken ="xoxb-298506418368-9ZHlhlb5sG7Gg9ywM2IzT42B";
+        String botToken ="xoxb-298506418368-PKNt65L0FQx0n4a3ofNm1sxP";
         slackService = new SlackletService(botToken);
 
         slackService.addSlacklet(new Slacklet() {
